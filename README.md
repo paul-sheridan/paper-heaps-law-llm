@@ -9,12 +9,11 @@ git clone https://github.com/paul-sheridan/paper-heaps-law-llm.git
 ```
 and `cd` into the repository root folder `paper-heaps-law-llm`.
 
-## Data
 
+## Obtaining the Data
 
-We download the data from The Pile, it is a big data set contain of many small data sets and **PubMed** is one of them.
-You can choose whatever dataset you want from here.
-https://pile.eleuther.ai/
+Download the **Pubmed Abstracts** component data from The Pile (https://pile.eleuther.ai/), an 800GB dataset of diverse text for language modeling.
+
 
 ## Prepare the envinrontment
 
