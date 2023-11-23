@@ -6,9 +6,9 @@ ArXiv preprint link: https://arxiv.org/abs/2311.06377v1
 
 Clone this repository by running the command
 ```
-git clone https://github.com/paul-sheridan/bursty-term-measure.git
+git clone https://github.com/paul-sheridan/paper-heaps-law-llm.git
 ```
-and `cd` into the repository root folder `bursty-term-measure`.
+and `cd` into the repository root folder `paper-heaps-law-llm`.
 
 ## Data
 
