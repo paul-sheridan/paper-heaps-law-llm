@@ -12,8 +12,8 @@ and `cd` into the repository root folder `paper-heaps-law-llm`.
 
 ## Data
 
-### PUBMED
-We download the data from The Pile, it is a big data set contain of many small data sets and PubMed is one of them.
+
+We download the data from The Pile, it is a big data set contain of many small data sets and **PubMed** is one of them.
 You can choose whatever dataset you want from here.
 https://pile.eleuther.ai/
 
