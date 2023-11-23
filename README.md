@@ -85,7 +85,7 @@ python drawThePlotAndEstimation.py
 ## Citation
 If you find anything useful please cite our work using:
 ```
-@misc{SarriaHurtado2023,
+@misc{Lai2023,
   author = {Uyen Lai, Gurjit S. Randhawa, Paul Sheridan},
   title = {Heaps' Law in GPT-Neo Large Language Model Emulated Corpora},
   year = {2023},
