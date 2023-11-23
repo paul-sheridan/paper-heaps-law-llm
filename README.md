@@ -15,7 +15,7 @@ and `cd` into the repository root folder `paper-heaps-law-llm`.
 Download the **Pubmed Abstracts** component dataset from The Pile ([download page](https://pile.eleuther.ai/)), an 800GB dataset of diverse text for language modeling.
 
 
-## Prepare the Envinronment
+## Preparing the Environment
 
 Repository code is written in Python 3 using Narval Cluster provided by Digital Research Alliance of Canada(https://docs.alliancecan.ca/wiki/Getting_started). 
 While there are multiple ways to run a repository, here is one way to do it using Narval:
