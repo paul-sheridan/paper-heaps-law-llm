@@ -12,7 +12,7 @@ and `cd` into the repository root folder `paper-heaps-law-llm`.
 
 ## Obtaining the Data
 
-Download the **Pubmed Abstracts** component dataset from The Pile ([download page](https://pile.eleuther.ai/)), an 800GB dataset of diverse text for language modeling.
+Download the **Pubmed Abstracts** component corpus from The Pile ([download page](https://pile.eleuther.ai/)), an 800GB dataset of diverse text for language modeling.
 
 
 ## Preparing the Environment
