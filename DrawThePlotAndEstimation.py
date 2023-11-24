@@ -1,19 +1,18 @@
-import pickle
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import statsmodels.api as sm
 
-
-def analyze_corpus(file_path, corpus_name):
-    # Read data
-
-
-    with open(file_path, 'rb') as f:
-        data = pickle.load(f)
-    data = data.drop(0)  # Drop the first row
+def analyze_corpus(file_path, corpus_name, file_type='csv'):
+    # Read data based on file type
+    if file_type == 'csv':
+        data = pd.read_csv(file_path, header=None, names=['n', 'm'])
+        data = data.drop(0)  # Drop the first row
+    elif file_type == 'pkl':
+        data = pd.read_pickle(file_path)
+    else:
+        raise ValueError("Unsupported file type")
 
     # Fit model
     X = sm.add_constant(np.log10(data['n']))
@@ -34,13 +33,17 @@ def analyze_corpus(file_path, corpus_name):
 
     return data, model.params
 
+pubmed_data, pubmed_params = analyze_corpus('data/pubmed.pkl', 'PubMed',file_type='csv')
+
+# Analyzing the GPT-Neo datasets (assuming they are in .pkl format)
+gptneo125m_data, gptneo125m_params = analyze_corpus('data/heapLawData-gptneo125m.pkl', 'GPT-Neo-125m', file_type='pkl')
+gptneo13b_data, gptneo13b_params = analyze_corpus('data/heapLawData-gptneo1.3B.pkl', 'GPT-Neo-1.3B', file_type='pkl')
+gptneo27b_data, gptneo27b_params = analyze_corpus('data/heapLawData-gptneo2.7B.pkl', 'GPT-Neo-2.7B', file_type='pkl')
+
+# Rest of the code remains the same
 
 
 
-pubmed_data, pubmed_params = analyze_corpus('data/pubmed.pkl', 'PubMed')
-gptneo125m_data, gptneo125m_params = analyze_corpus('data/heapLawData-gptneo125m.pkl', 'GPT-Neo-125m')
-gptneo13b_data, gptneo13b_params = analyze_corpus('data/heapLawData-gptneo1.3B.pkl', 'GPT-Neo-1.3B')
-gptneo27b_data, gptneo27b_params = analyze_corpus('data/heapLawData-gptneo2.7B.pkl', 'GPT-Neo-2.7B')
 
 
 
