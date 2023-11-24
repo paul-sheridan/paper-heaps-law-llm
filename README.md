@@ -23,7 +23,7 @@ While there are multiple ways to run the repository code, here is one way to do 
 
 From the command line, create a virtual environment:
 ```
-virtualenv /project/def-yourName/yourDirctory
+virtualenv /project/def-yourName/yourDirectory
 ```
 
 ## Running Repository Code
@@ -48,7 +48,7 @@ python cleanData.py
 
 To choose seed text for abstract emulation, run:
 ```
-python promtSelection.py
+python promptSelection.py
 ```
 
 ### Data Genaration
