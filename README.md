@@ -67,17 +67,14 @@ python decode.py
 This script applies the same preprocesing strageries as used above.
 
 
-### Heaps' Law Estimation
+### Heaps' Law Estimation and Visualization
 
-To estimate the Heaps' law parameters for each GPT-Neo model using simple linear regression,  navigate to each folder `gpt-neo-125m`, `gpt-neo-1.3b`, `gpt-neo-2.7b` and run
+To prepare the emulated texts for analysis, navigate to each folder `gpt-neo-125m`, `gpt-neo-1.3b`, `gpt-neo-2.7b` and run
 ```
 python heapsLaw.py
 ```
-The parameter estimates are found in Table 1 of the paper.
 
-### Heaps' Law Visualization
-
-To generate the plots of Figure 1 in the paper, run
+To generate the plots of Figure 1 and Heaps' law parameter estimates of Table 1, run
 ```
 python drawThePlotAndEstimation.py
 ```
