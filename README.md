@@ -1,6 +1,7 @@
 # Heaps' Law in GPT-Neo Large Language Model Emulated Corpora
 This repository contains computer code for reproducing the results described in the EVIA 2023 Workshop ([landing page](https://research.nii.ac.jp/ntcir/evia2023/)) paper "Heaps' Law in GPT-Neo Large Language Model Emulated Corpora". ArXiv preprint link: https://arxiv.org/abs/2311.06377v1
 
+
 ## Getting Started
 
 Clone this repository by running the command
@@ -8,6 +9,7 @@ Clone this repository by running the command
 git clone https://github.com/paul-sheridan/paper-heaps-law-llm.git
 ```
 and `cd` into the repository root folder `paper-heaps-law-llm`.
+
 
 
 ## Obtaining the Data
@@ -78,6 +80,7 @@ To generate the plots of Figure 1 and Heaps' law parameter estimates of Table 1,
 ```
 python drawThePlotAndEstimation.py
 ```
+
 
 
 ## Citation
