@@ -29,25 +29,33 @@ virtualenv /project/def-yourName/yourDirctory
 
 ## Running Repository Code
 
-**DATA SELECTION**
-In this research we process 500.000 PubMed documents, so you can navigate to the file and change the amount of document or the document you want to process
+### Data Selection
+
+In this research we analyze the first 500,000 abstracts in the PubMed Abstracts corpus. To prepare this dataset, run the `dataSelection.py` script:
+
 ```
-python dataSelection
+python dataSelection.py
 ```
 
-**Clean Data**
-clean the data using the method we mention in the paper
+To select a custom number of abstracts, navigate to the `dataSelection.py` script and set the `limit` variable on line 8 to be the number of documents that you want to process.
+
+### Data Preprocessing
+
+To preprocess the data according to the steps described in the paper, run:
+
 ```
 python cleanData.py
 ```
 
-**Promt Selection**
+### Promt Selection
+
 Choose the seed for the LLMs
+
 ```
 python promtSelection.py
 ```
 
-**Data Genaration**
+### Data Genaration
 Generate data from LLMS using the seed we created.
 
 Navigate to folder gpt-neo-125m, gpt-neo-1.3b, gpt-neo-2.7b.
@@ -63,13 +71,14 @@ python decode.py
 ```
 and we use the same cleaning data strageries to clean the data from LLMs
 
-**Heap's law data calculation**
+### Heaps' Law Estimation
+
 heap's law need number of vocabulary and number of total word in documents so we need to navigate and produce the result use:
 ```
 python heaplaw.py
 ```
 
-**Heap's law visualization**
+### Heaps' Law Visualization
 generate the plot using
 ```
 python drawThePlotAndEstimation.py
