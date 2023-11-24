@@ -17,8 +17,9 @@ Download the **Pubmed Abstracts** component corpus from The Pile ([download page
 
 ## Preparing the Environment
 
-Repository code is written in Python 3 using Narval Cluster provided by Digital Research Alliance of Canada(https://docs.alliancecan.ca/wiki/Getting_started). 
-While there are multiple ways to run a repository, here is one way to do it using Narval:
+Repository code is written in Python 3. It was run on the Narval cluster ([Narval wiki page](https://docs.alliancecan.ca/wiki/Narval/en)), provided by Digital Research Alliance of Canada ([Getting started wiki page](https://docs.alliancecan.ca/wiki/Getting_started)). 
+
+While there are multiple ways to run the repository code, here is one way to do it using Narval:
 
 From the command line, create a virtual environment:
 
