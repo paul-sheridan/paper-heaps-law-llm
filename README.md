@@ -53,7 +53,7 @@ python promtSelection.py
 
 ### Data Genaration
 
-To emulate text from the GPTNeo LLMs using the above generated seed texts, run the following shell scripts from inside each of the folders `gpt-neo-125m`, `gpt-neo-1.3b`, `gpt-neo-2.7b`:
+To emulate text from the GPT-Neo models using the above generated seed texts, run the following shell scripts from inside each of the folders `gpt-neo-125m`, `gpt-neo-1.3b`, `gpt-neo-2.7b`:
 ```
 .\generate_python_scripts.sh
 .\generate_slurm_scripts.sh
@@ -69,7 +69,7 @@ This script applies the same preprocesing strageries as used above.
 
 ### Heaps' Law Estimation
 
-To estimate the Heaps' law parameters for each GPTNeo model using simple linear regression,  navigate to each folder `gpt-neo-125m`, `gpt-neo-1.3b`, `gpt-neo-2.7b` and run
+To estimate the Heaps' law parameters for each GPT-Neo model using simple linear regression,  navigate to each folder `gpt-neo-125m`, `gpt-neo-1.3b`, `gpt-neo-2.7b` and run
 ```
 python heapsLaw.py
 ```
