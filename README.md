@@ -48,7 +48,7 @@ python cleanData.py
 
 To choose seed text for abstract emulation, run:
 ```
-python promtSelection.py
+python promptSelection.py
 ```
 
 ### Data Genaration
