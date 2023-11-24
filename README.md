@@ -22,7 +22,6 @@ Repository code is written in Python 3. It was run on the Narval cluster ([Narva
 While there are multiple ways to run the repository code, here is one way to do it using Narval:
 
 From the command line, create a virtual environment:
-
 ```
 virtualenv /project/def-yourName/yourDirctory
 ```
@@ -32,7 +31,6 @@ virtualenv /project/def-yourName/yourDirctory
 ### Data Selection
 
 In this research we analyze the first 500,000 abstracts in the PubMed Abstracts corpus. To prepare this dataset, run the `dataSelection.py` script:
-
 ```
 python dataSelection.py
 ```
@@ -42,34 +40,32 @@ To select a custom number of abstracts, navigate to the `dataSelection.py` scrip
 ### Data Preprocessing
 
 To preprocess the data according to the steps described in the paper, run:
-
 ```
 python cleanData.py
 ```
 
-### Promt Selection
+### Prompt Selection
 
-Choose the seed for the LLMs
-
+To choose seed text for abstract emulation, run:
 ```
 python promtSelection.py
 ```
 
 ### Data Genaration
-Generate data from LLMS using the seed we created.
 
-Navigate to folder gpt-neo-125m, gpt-neo-1.3b, gpt-neo-2.7b.
+To emulate text from the GPTNeo LLMs using the above generated seed texts, run the following shell scripts from inside each of the folders `gpt-neo-125m`, `gpt-neo-1.3b`, `gpt-neo-2.7b`:
 ```
 .\generate_python_scripts.sh
 .\generate_slurm_scripts.sh
 .\submit_all_jobs.sh
 ```
 
-After that navigate to each folder gpt-neo-125m, gpt-neo-1.3b, gpt-neo-2.7b. and run
+After that navigate to each folder `gpt-neo-125m`, `gpt-neo-1.3b`, `gpt-neo-2.7b` and run
 ```
 python decode.py
 ```
-and we use the same cleaning data strageries to clean the data from LLMs
+This script applies the same preprocesing strageries as used above.
+
 
 ### Heaps' Law Estimation
 
