@@ -69,21 +69,18 @@ This script applies the same preprocesing strageries as used above.
 
 ### Heaps' Law Estimation
 
-heap's law need number of vocabulary and number of total word in documents so we need to navigate and produce the result use:
+To estimate the Heaps' law parameters for each GPTNeo model using simple linear regression,  navigate to each folder `gpt-neo-125m`, `gpt-neo-1.3b`, `gpt-neo-2.7b` and run
 ```
-python heaplaw.py
+python heapsLaw.py
 ```
+The parameter estimates are found in Table 1 of the paper.
 
 ### Heaps' Law Visualization
-generate the plot using
+
+To generate the plots of Figure 1 in the paper, run
 ```
 python drawThePlotAndEstimation.py
 ```
-
-
-
-****
-
 
 
 ## Citation
