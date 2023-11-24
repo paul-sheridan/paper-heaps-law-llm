@@ -1,6 +1,6 @@
 # Heaps' Law in GPT-Neo Large Language Model Emulated Corpora
-Official repository for the workshop paper Heaps' Law in GPT-Neo Large Language Model Emulated Corpora
-ArXiv preprint link: https://arxiv.org/abs/2311.06377v1
+This repository contains computer code for reproducing the results described in the EVIA 2023 Workshop ([landing page](https://research.nii.ac.jp/ntcir/evia2023/)) paper "Heaps' Law in GPT-Neo Large Language Model Emulated Corpora". ArXiv preprint link: https://arxiv.org/abs/2311.06377v1
+
 
 ## Getting Started
 
@@ -10,82 +10,83 @@ git clone https://github.com/paul-sheridan/paper-heaps-law-llm.git
 ```
 and `cd` into the repository root folder `paper-heaps-law-llm`.
 
-## Data
 
 
-We download the data from The Pile, it is a big data set contain of many small data sets and **PubMed** is one of them.
-You can choose whatever dataset you want from here.
-https://pile.eleuther.ai/
+## Obtaining the Data
 
-## Prepare the envinrontment
+Download the **Pubmed Abstracts** component corpus from The Pile ([download page](https://pile.eleuther.ai/)), an 800GB dataset of diverse text for language modeling.
 
-Repository code is written in Python 3 using Narval Cluster provided by Digital Research Alliance of Canada(https://docs.alliancecan.ca/wiki/Getting_started). 
-While there are multiple ways to run a repository, here is one way to do it using Narval:
+
+## Preparing the Environment
+
+Repository code is written in Python 3. It was run on the Narval cluster ([Narval wiki page](https://docs.alliancecan.ca/wiki/Narval/en)), provided by Digital Research Alliance of Canada ([Getting started wiki page](https://docs.alliancecan.ca/wiki/Getting_started)). 
+
+While there are multiple ways to run the repository code, here is one way to do it using Narval:
 
 From the command line, create a virtual environment:
-
 ```
-virtualenv /project/def-yourName/yourDirctory
+virtualenv /project/def-yourName/yourDirectory
 ```
 
 ## Running Repository Code
 
-**DATA SELECTION**
-In this research we process 500.000 PubMed documents, so you can navigate to the file and change the amount of document or the document you want to process
+### Data Selection
+
+In this research we analyze the first 500,000 abstracts in the PubMed Abstracts corpus. To prepare this dataset, run the `dataSelection.py` script:
 ```
-python dataSelection
+python dataSelection.py
 ```
 
-**Clean Data**
-clean the data using the method we mention in the paper
+To select a custom number of abstracts, navigate to the `dataSelection.py` script and set the `limit` variable on line 8 to be the number of documents that you want to process.
+
+### Data Preprocessing
+
+To preprocess the data according to the steps described in the paper, run:
 ```
 python cleanData.py
 ```
 
-**Promt Selection**
-Choose the seed for the LLMs
+### Prompt Selection
+
+To choose seed text for abstract emulation, run:
 ```
-python promtSelection.py
+python promptSelection.py
 ```
 
-**Data Genaration**
-Generate data from LLMS using the seed we created.
+### Data Genaration
 
-Navigate to folder gpt-neo-125m, gpt-neo-1.3b, gpt-neo-2.7b.
+To emulate text from the GPT-Neo models using the above generated seed texts, run the following shell scripts from inside each of the folders `gpt-neo-125m`, `gpt-neo-1.3b`, `gpt-neo-2.7b`:
 ```
 .\generate_python_scripts.sh
 .\generate_slurm_scripts.sh
 .\submit_all_jobs.sh
 ```
 
-After that navigate to each folder gpt-neo-125m, gpt-neo-1.3b, gpt-neo-2.7b. and run
+After that navigate to each folder `gpt-neo-125m`, `gpt-neo-1.3b`, `gpt-neo-2.7b` and run
 ```
 python decode.py
 ```
-and we use the same cleaning data strageries to clean the data from LLMs
+This script applies the same preprocesing strageries as used above.
 
-**Heap's law data calculation**
-heap's law need number of vocabulary and number of total word in documents so we need to navigate and produce the result use:
+
+### Heaps' Law Estimation and Visualization
+
+To prepare the emulated texts for analysis, navigate to each folder `gpt-neo-125m`, `gpt-neo-1.3b`, `gpt-neo-2.7b` and run
 ```
-python heaplaw.py
+python heapsLaw.py
 ```
 
-**Heap's law visualization**
-generate the plot using
+To generate the plots of Figure 1 and Heaps' law parameter estimates of Table 1, run
 ```
 python drawThePlotAndEstimation.py
 ```
 
 
 
-****
-
-
-
 ## Citation
 If you find anything useful please cite our work using:
 ```
-@misc{SarriaHurtado2023,
+@misc{Lai2023,
   author = {Uyen Lai, Gurjit S. Randhawa, Paul Sheridan},
   title = {Heaps' Law in GPT-Neo Large Language Model Emulated Corpora},
   year = {2023},
