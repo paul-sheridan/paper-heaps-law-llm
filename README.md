@@ -1,5 +1,9 @@
 # Heaps' Law in GPT-Neo Large Language Model Emulated Corpora
-This repository contains computer code for reproducing the results described in the EVIA 2023 Workshop ([landing page](https://research.nii.ac.jp/ntcir/evia2023/)) paper "Heaps' Law in GPT-Neo Large Language Model Emulated Corpora". ArXiv preprint link: https://arxiv.org/abs/2311.06377v1
+This repository contains computer code for reproducing the results described in the EVIA 2023 Workshop ([landing page](https://research.nii.ac.jp/ntcir/evia2023/)) paper "Heaps' Law in GPT-Neo Large Language Model Emulated Corpora".
+
+Workshop proceedings link: https://research.nii.ac.jp/ntcir/workshop/OnlineProceedings17/EVIA/toc_evia.html
+
+ArXiv preprint link: https://arxiv.org/abs/2311.06377v1
 
 
 ## Getting Started
