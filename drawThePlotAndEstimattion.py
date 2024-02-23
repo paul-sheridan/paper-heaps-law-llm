@@ -1,31 +1,48 @@
-import json
+import math
 import pickle
-from processData import process_data
+import numpy as np
+from matplotlib import pyplot as plt
 
-def main():
-    file_path = 'data/test.jsonl'
-    processed_data = []
-    limit = 500000
-    prompt_length = 5
-    try:
-        with open(file_path, 'r', encoding='utf-8') as f:
-            for line in f:
-                data_chunk = json.loads(line).get('text', '')  # Assuming each line is a JSON object with an 'abstract' field
-                processed_line = process_data(data_chunk)
-                if len(processed_line) > prompt_length:  # Check if the processed line has more than 10 words
-                    processed_data.append(processed_line)
-                    if len(processed_data) >= limit:
-                        break
-        with open('processData.pickle', 'wb') as f:
-            pickle.dump(processed_data, f)
-        print("Data has been processed and saved to 'processData.pickle'")
-    except FileNotFoundError:
-        print("The file was not found. Please check the file path.")
-    except json.JSONDecodeError:
-        print("Error decoding JSON. Please check the file content.")
-    except Exception as e:
-        print("An error occurred:", str(e))
+class pubMed:
+    def __init__(self):
+        self.rawData = []
 
-if __name__ == "__main__":
-    main()
+    def loadDocument(self, filename):
+        with open(filename, 'rb') as f:
+            self.rawData = pickle.load(f)[0:20000]
 
+    def DrawHeapLaw(self):
+        if len(self.rawData) < 2:  # Need at least two points to fit
+            return None, None, None, None
+
+        x, y = [], []
+        for xAndy in self.rawData:
+            x.append(math.log10(xAndy[0]))
+            y.append(math.log10(xAndy[1]))
+
+        beta, logk = np.polyfit(x, y, 1)
+        return x, y, beta, logk
+
+
+estimation = pubMed()
+file = 'dataGenaration/result/heapLawData-selectedPromt.pkl'
+estimation.loadDocument(file)
+
+x, y, beta, logk = estimation.DrawHeapLaw()
+print(beta)
+print(logk)
+
+
+# Check if data is sufficient for plotting
+if x is not None and y is not None:
+    # Plotting the result
+    plt.figure(figsize=(10, 5))
+    plt.scatter(x, y, label='Data Points')
+    plt.plot([min(x), max(x)], [beta * min(x) + logk, beta * max(x) + logk], color='red', label='Fitted Line')
+    plt.xlabel('log10(X)')
+    plt.ylabel('log10(Y)')
+    plt.title('Heap\'s Law')
+    plt.legend()
+    plt.show()
+else:
+    print("Insufficient data for plotting.")
